@@ -1,4 +1,4 @@
-var query = "mongodb://localhost:27017/spotify"
+console.log(artists);
 
 // Append to make id strings
 d3.json(query).then((data)=>{
