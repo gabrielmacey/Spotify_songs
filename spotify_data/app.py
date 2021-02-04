@@ -15,7 +15,7 @@ mongo = PyMongo(app)
 
 
 # Set route
-@app.route('/')
+@app.route('/index.html/')
 def index():
     spot_songs = mongo.db.songs.find_one()
     artists = []
@@ -43,6 +43,18 @@ def index():
         else:
             exit
     return render_template("index.html", artists=artists, release=release, hard=hard)
+
+@app.route('/Artist_Top_Songs.html/')
+def top_art():
+    artists = []
+    for object in mongo.db.songs.find({}, {"_id":False}):
+        artist = object["artist"]
+        if artist not in artists:
+            artists.append(artist)
+        else:
+            exit
+        sep = object["album_release_date"].split("-")
+    return render_template("Artist_Top_Songs.html", artists=artists)
 
 @app.route('/data/<artist>')
 def data(artist):
