@@ -15,7 +15,7 @@ mongo = PyMongo(app)
 
 
 # Set route
-@app.route('/index.html/')
+@app.route('/index.html')
 def index():
     spot_songs = mongo.db.songs.find_one()
     artists = []
@@ -30,8 +30,7 @@ def index():
             artists.append(artist)
         else:
             exit
-        sep = object["album_release_date"].split("-")
-        year = sep[0]
+        year = object["year_of_release"]
         if year not in release:
             release.append(year)
         else:
