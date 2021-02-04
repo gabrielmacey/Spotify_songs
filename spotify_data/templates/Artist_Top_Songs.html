@@ -20,7 +20,7 @@
         <body><div class="p-3 mb-2 bg-dark text-white">
         <div class="bs-example">
             <nav class="navbar navbar-expand-md navbar-light bg-dark"><div class="container"><div class="col" >
-                <a href="#" class="navbar-brand"><span class="align-middle"><ul class="nav justify-content-center"><img src="spotify.png" height="55" alt="CoolBrand"></ul></div><div class="col"><h2>SPOTIFY DASHBOARD
+                <a href="#" class="navbar-brand"><span class="align-middle"><ul class="nav justify-content-center"><img src="{{ url_for('static', filename='img/spotify.png') }}" height="55" alt="CoolBrand"></ul></div><div class="col"><h2>SPOTIFY DASHBOARD
 
                 </h2></span></a></div>
 
@@ -36,7 +36,7 @@
 
               <div class="caption">
                 <ul class="nav justify-content-center">
-                  <a href="index.html" class="btn btn-success" role="button">Home</a> </ul>
+                  <a href="{{url_for('index') }}" class="btn btn-success" role="button">Home</a> </ul>
                 </div>
             </div>
             <div class="col-3">
@@ -66,14 +66,19 @@
 
     <div class="row">
         <div class="col-3">
-        <button type = "button" class = "btn btn-secondary dropdown-toggle btn-lg btn-block">
+        <button type="button" class="btn btn-secondary dropdown-toggle btn-lg btn-block">
             Artists
          </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Sam Hunt</a>
-            <a class="dropdown-item" href="#">Beyonce/a>
-            <a class="dropdown-item" href="#">Pink Floyd</a>
-          </div></div>
+         <div id="artist-dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">All</a>
+           {% for artist in artists %}
+            <a class="dropdown-item" href="#">{{artist}}</a>
+            {% endfor %}
+        </div>
+
+    </div>
+  </div>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -82,6 +87,13 @@
   <script type="text/javascript">
     var artists = {{ artists | tojson }};
     console.log(artists);
+
+    $('#artist-dropdown .dropdown-item').click(function(event) {
+      const artistName = event.target.textContent;
+      console.log(artistName);
+      // API request
+      // Pipe into d3.js
+    });
   </script>
   <script src="logic.js"></script>
   </body>
