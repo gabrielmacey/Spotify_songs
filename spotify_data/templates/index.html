@@ -6,12 +6,20 @@
   </head>
   <body>
     <h1> Test </h1>
-    <h1>{{artists}}</h1>
+    <h1>{{hard}}</h1>
+    <br>
+    <div id="chart"></div>
+
   </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script type="text/javascript">
       var artists = {{ artists | tojson }};
       console.log(artists);
+      var release = {{release | tojson }};
+      console.log(release);
+      var hard = {{hard | tojson }};
+      console.log(hard);
     </script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="logic.js"></script>
 </html>
