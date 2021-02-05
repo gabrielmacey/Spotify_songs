@@ -52,16 +52,24 @@ def top_art():
             artists.append(artist)
         else:
             exit
-        sep = object["year_of_release"]
     return render_template("Artist_Top_Songs.html", artists=artists)
-
-@app.route('/data')
-def data():
-    results = mongo.db.songs.find({}, {"_id":False})
-    data1 = []
-    for result in results:
-        data1.append(result)
-    return jsonify(data1)
+    
+@app.route('/popularity-and-year')
+def top_pop():
+    popularity = []
+    date_release = []
+    for object in mongo.db.songs.find({}, {"_id":False}):
+        pop = object["popularity_index"]
+        if pop not in popularity:
+            popularity.append(pop)
+        else:
+            exit
+        years = object["year_of_release"]
+        if years not in date_release:
+            date_release.append(years)
+        else:
+            exit
+    return render_template("Song_Data.html", popularity=popularity, date_release=date_release)
 
 
 if __name__ == "__main__":
