@@ -4,13 +4,14 @@ from flask_pymongo import PyMongo
 import json
 from bson import json_util
 from bson.json_util import dumps
+from pymongo import MongoClient
 
 
 # Create an instance of our Flask app.
 app = Flask(__name__)
 
 # Use flask_pymongo to set up mongo connection
-app.config["MONGO_URI"] = "mongodb://localhost:27017/spotify"
+app.config["MONGO_URI"] = 'mongodb+srv://vhowell:test@cluster0.fbpgo.mongodb.net/<dbname>?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
 
