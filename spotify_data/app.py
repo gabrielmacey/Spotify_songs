@@ -80,5 +80,33 @@ def file():
         data1.append(result)
     return jsonify(data1)
 
+@app.route('/about')
+def about():
+    spot_songs = mongo.db.songs.find_one()
+    artists = []
+    release = []
+    hard = []
+    soft = []
+    art = "Sam Hunt"
+    release_year = "all"
+    for object in mongo.db.songs.find({}, {"_id":False}):
+        artist = object["artist"]
+        if artist not in artists:
+            artists.append(artist)
+        else:
+            exit
+        year = object["year_of_release"]
+        if year not in release:
+            release.append(year)
+        else:
+            exit
+        if (artist == art) and (release_year == "all"):
+            hard.append(object)
+        elif (artist == art) and (year == release_year):
+            hard.append(object)
+        else:
+            exit
+    return render_template("about.html", artists=artists, release=release, hard=hard)
+
 if __name__ == "__main__":
     app.run(debug=True)
