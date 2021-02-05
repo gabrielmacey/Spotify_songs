@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 import json
 from bson import json_util
 from bson.json_util import dumps
+from pymongo import MongoClient
 
 
 # Create an instance of our Flask app.
@@ -53,7 +54,7 @@ def top_art():
         else:
             exit
     return render_template("Artist_Top_Songs.html", artists=artists)
-    
+
 @app.route('/popularity-and-year')
 def top_pop():
     popularity = []
@@ -71,6 +72,13 @@ def top_pop():
             exit
     return render_template("Song_Data.html", popularity=popularity, date_release=date_release)
 
+@app.route('/json-file')
+def file():
+    results = mongo.db.songs.find({}, {"_id":False})
+    data1 = []
+    for result in results:
+        data1.append(result)
+    return jsonify(data1)
 
 if __name__ == "__main__":
     app.run(debug=True)

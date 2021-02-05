@@ -1,31 +1,20 @@
-// Define SVG area dimensions
-var svgWidth = 960;
-var svgHeight = 660;
+var data = [{
+  values: [10,5,13,7,40,15,10],
+  labels: ["Sam Smith", "Beyonce", "Rhianna", "Queen", "Aerosmith", "Bad Bunny", "Marc Anthony"],
+  type: 'pie',
+  marker: {
+      colors: ['#1DB954','green','#1DB954','green','#1DB954','green','#1DB954']
+    }
+}];
 
-// Define the chart's margins as an object
-var chartMargin = {
-  top: 30,
-  right: 30,
-  bottom: 30,
-  left: 30
+var layout = {
+  height: 400,
+  width: 500,
+  title: "Top Artists 2020"
 };
-
-// Define dimensions of the chart area
-var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
-var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
-
-// Select body, append SVG area to it, and set the dimensions
-var svg = d3.select("body")
-  .append("svg")
-  .attr("height", svgHeight)
-  .attr("width", svgWidth);
 
 // Append a group to the SVG area and shift ('translate') it to the right and to the bottom
 var chartGroup = svg.append("g")
-  .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
+.attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-
-d3.json("/artist/data/").then(function() {
-  // EventHandler
-
-}
+Plotly.newPlot("pie", data, layout);

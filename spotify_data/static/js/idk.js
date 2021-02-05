@@ -1,16 +1,29 @@
 $(function(){
 	$('#artist-dropdown .dropdown-item').click(function(){
 		$.ajax({
-			url: '/artist-top-songs',
-			data: $('form').serialize(),
-			type: 'POST',
-			success: function(response){
-				console.log(response);
-			},
-			error: function(error){
-				console.log(error);
-			}
+    type:"GET",
+    url: "/artist-top-songs",
+		data: {
+			artist: "Sam Hunt"
+		}
+    success: function(data) {
+			console.log(data);
+        },
+    error: function(jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+        },
 		});
 	});
 });
-const artistName = event.target.textContent;
+
+$.ajax({
+  url: "ajax.aspx",
+  type: "get", //send it through get method
+  data: {
+    ajaxid: 4,
+    UserID: UserID,
+    EmailAddress: EmailAddress
+  },
+  success: function(response) {
+    //Do Something
+  },
