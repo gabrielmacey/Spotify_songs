@@ -52,17 +52,17 @@ def top_art():
             artists.append(artist)
         else:
             exit
-        sep = object["year_of_release"].split("-")
+        sep = object["year_of_release"]
     return render_template("Artist_Top_Songs.html", artists=artists)
 
-@app.route('/data/<artist>')
-def data(artist):
-    results = mongo.db.songs.find({"artist":artist}, {"_id":False})
-    # results = mongo.db.songs.find({"artist":artist}, {"_id":False})
+@app.route('/data')
+def data():
+    results = mongo.db.songs.find({}, {"_id":False})
     data1 = []
     for result in results:
         data1.append(result)
     return jsonify(data1)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
