@@ -20,7 +20,7 @@
         <body><div class="p-3 mb-2 bg-dark text-white">
         <div class="bs-example">
             <nav class="navbar navbar-expand-md navbar-light bg-dark"><div class="container"><div class="col" >
-                <a href="#" class="navbar-brand"><span class="align-middle"><ul class="nav justify-content-center"><img src="spotify.png" height="55" alt="CoolBrand"></ul></div><div class="col"><h2>SPOTIFY DASHBOARD
+                <a href="#" class="navbar-brand"><span class="align-middle"><ul class="nav justify-content-center"><img src="{{ url_for('static', filename='img/spotify.png') }}" height="55" alt="CoolBrand"></ul></div><div class="col"><h2>SPOTIFY DASHBOARD
 
                 </h2></span></a></div>
 
@@ -36,7 +36,7 @@
 
               <div class="caption">
                 <ul class="nav justify-content-center">
-                  <a href="#" class="btn btn-success" role="button">Home</a> </ul>
+                  <a href="{{url_for('index') }}" class="btn btn-success" role="button">Home</a> </ul>
               </div>
             </div>
             <div class="col-3">
@@ -57,12 +57,10 @@
 
               <div class="caption">
                 <ul class="nav justify-content-center">
-                <a href="Song_Data.html" class="btn btn-success" role="button">Song Data</a></ul>
+                <a href="{{url_for('popularity') }}" class="btn btn-success" role="button">Song Data</a></ul>
               </div>
             </div>
         </div></nav>
-        <p>{{spotify_songs}}</p>
-        <p>{{artists}}</p>
 </div></div>
 
 
