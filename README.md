@@ -24,6 +24,6 @@ This desired information is then pushed back into the front-end files and showca
 
 # Credit for this project goes to:
 
- Vanessa Howell (howellva)     |       Gabriel Macey (gabrielmacey)     |       Amel Christy (Amelchristy)
+ Vanessa Howell (howellva)       |         Gabriel Macey (gabrielmacey)       |         Amel Christy (Amelchristy)
 
 ![Us](https://github.com/gabrielmacey/Spotify_songs/blob/main/spotify_data/static/img/profile.png?raw=true)
