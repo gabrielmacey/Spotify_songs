@@ -21,3 +21,7 @@ This desired information is then pushed back into the front-end files and showca
 ## **Here is a visualization of our system**
 
 ![visualization of network](https://github.com/gabrielmacey/Spotify_songs/blob/main/spotify_data/static/img/image.png?raw=true)
+
+# Credit for this project goes to:
+
+![Us](https://github.com/gabrielmacey/Spotify_songs/blob/main/spotify_data/static/img/profile.png?raw=true)
