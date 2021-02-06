@@ -11,4 +11,4 @@ Our MongoDB is then linked to a flask which is linked to a javascript file and h
 We are then allowing users to update their preferred data on the front-end which then calls the back-end and requests desired information.
 This desired information is then pushed back into the front-end files and showcases visualization of the information requested.
 
-https://github.com/gabrielmacey/Spotify_songs/blob/main/spotify_data/static/img/image.png
+![visualization of network](https://github.com/gabrielmacey/Spotify_songs/blob/main/spotify_data/static/img/image.png?raw=true)
