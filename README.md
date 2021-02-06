@@ -1,11 +1,12 @@
 # Spotify_songs
 
-#What are we doing?
+##What are we doing?
+
 We are taking information from Spotify and showcasing it on a web browser.
 
 By allowing the user to adjust the parameters of each bar graph, we are allowing the user to visual information about some of their favorite artists that we have chosen.
 
-#How did we do it?
+##How did we do it?
 
 Our project takes information from a Spotify API and stores that information in a Jupyter Notebook. This information is stored as a DataFrame and a dictionary.
 
