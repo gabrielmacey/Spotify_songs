@@ -1,116 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>spotify</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Style.css') }}">
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+</head>
 
-    <html lang="en">
-        <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>spotify</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <style>
-            .bs-example{
-                margin: 20px;
-            }
-        </style>
-        </head>
-        <body><div class="p-3 mb-2 bg-dark text-white">
+<body>
+    <div class="p-3 mb-2 bg-dark text-white">
         <div class="bs-example">
-            <nav class="navbar navbar-expand-md navbar-light bg-dark"><div class="container"><div class="col" >
-                <a href="index.html" class="navbar-brand"><span class="align-middle"><ul class="nav justify-content-center"><img src="{{ url_for('static', filename='img/spotify.png') }}" height="60" alt="CoolBrand"></ul></div><div class="col"><h2>SPOTIFY DASHBOARD
+            <nav class="navbar navbar-expand-md navbar-light bg-dark">
+                <div class="container">
+                    <div class="col">
+                        <a href="index.html" class="navbar-brand"><span class="align-middle">
+                                <ul class="nav justify-content-center"><img src="{{ url_for('static', filename='img/spotify.png') }}" height="60" alt="CoolBrand"></ul>
+                    </div>
+                    <div class="col">
+                        <h2>SPOTIFY DASHBOARD
 
-                </h2></span></a></div>
+                        </h2></span></a>
+                    </div>
 
-                </div></div>
-
-
-                <div class="p-3 mb-2 bg-dark text-success"><br>
-
-                        <div class="row">
+                </div>
+        </div>
 
 
-            <div class="col-3">
+        <div class="p-3 mb-2 bg-dark text-success"><br>
 
-              <div class="caption">
-                <ul class="nav justify-content-center">
-                  <a href="{{url_for('index') }}" class="btn btn-success" role="button">Home</a> </ul>
+            <div class="row">
+
+
+                <div class="col-3">
+
+                    <div class="caption">
+                        <ul class="nav justify-content-center">
+                            <a href="{{url_for('index') }}" class="btn btn-success" role="button">Home</a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="caption">
+                        <ul class="nav justify-content-center">
+                            <a href="{{url_for('about') }}" class="btn btn-success" role="button">About Us</a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="caption">
+                        <ul class="nav justify-content-center">
+                            <a href="{{url_for('top_art') }}" class="btn btn-success" role="button">Artists Top Songs</a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="caption">
+                        <ul class="nav justify-content-center">
+                            <a href="{{url_for('top_pop') }}" class="btn btn-success" role="button">Song Data</a>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-3">
-
-              <div class="caption">
-                <ul class="nav justify-content-center">
-                <a href="{{url_for('about') }}" class="btn btn-success" role="button">About Us</a></ul>
-              </div>
-            </div>
-            <div class="col-3">
-
-                <div class="caption">
-                    <ul class="nav justify-content-center">
-                      <a href="{{url_for('top_art') }}" class="btn btn-success" role="button">Artists Top Songs</a></ul>
-              </div>
-            </div>
-            <div class="col-3">
-
-              <div class="caption">
-                <ul class="nav justify-content-center">
-                <a href="{{url_for('top_pop') }}" class="btn btn-success" role="button">Song Data</a></ul>
-              </div>
-            </div>
-        </div></nav>
-</div></div>
-
-<div class="p-3 mb-2 bg-dark text-success"><br>
-  <div class="container">  <div class="row">
-    <div class="col">
-
-
-           Popularity
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#"></a>
-                <a class="dropdown-item" href="#"></a>
-                <a class="dropdown-item" href="#"></a>
-              </div>
-            </div>
-        </div></div><br><br><br><br>
-        <div class="row"><div class="col">
-
-          Year
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1954</a>
-
-
-
-              </div>
-          </div>  </div>
+            </nav>
         </div>
-      </div>
     </div>
 
-</ul>
-</div>
+    <div class="p-3 mb-2 bg-dark text-success"><br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    var date = {{ date_release | tojson }};
-    date.sort();
-    console.log(date);
-    var pop = {{ popularity | tojson }};
-    pop.sort();
-    console.log(pop);
-  </script>
-  </body>
-  </html>
+
+                    Popularity
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br><br><br>
+            <div class="row">
+                <div class="col">
+
+                    Year
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">1954</a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/idk.js') }}"></script>
+</body>
+</html>
