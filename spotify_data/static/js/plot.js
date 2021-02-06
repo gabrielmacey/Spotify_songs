@@ -1,18 +1,14 @@
 $(function(){
-	$('.dropdown .dropdown-toggle').click(function(event){
-		$(this).parent().children('.dropdown-menu').toggle(200);
-	});
-
 	$('#year-dropdown .dropdown-item').click((event) => {
 		$.ajax({
 	    type:"GET",
 	    url: "/year",
 			data: {
-				popularity_index: event.target.textContent
+				year_of_release: event.target.textContent
 			},
 	    success: function(data) {
 				$('#year-dropdown .dropdown-menu').hide(200);
-				updateGraph(data);
+				updateYearGraph(data);
 	    },
 	    error: function(jqXHR, textStatus, errorThrown) {
 				$('#year-dropdown .dropdown-menu').hide(200);
@@ -22,7 +18,7 @@ $(function(){
 	});
 });
 
-function updateGraph(yearData) {
+function updateYearGraph(yearData) {
 	let data = {
 	  x: [],
 	  y: [],
@@ -35,7 +31,7 @@ function updateGraph(yearData) {
 		data.x.push(item['song_title']);
 		data.y.push(item['popularity_index']);
 	});
-	console.log(artistData);
+	console.log(yearData);
 
 	const layout = {
 	  title: "Spotify Year Popularity"

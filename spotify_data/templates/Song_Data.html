@@ -23,8 +23,10 @@
                                 <ul class="nav justify-content-center"><img src="{{ url_for('static', filename='img/spotify.png') }}" height="60" alt="CoolBrand"></ul>
                     </div>
                     <div class="col">
-                        <h2>SPOTIFY DASHBOARD
-                        </h2></span></a>
+                      <h1 class="ml2">SPOTIFY DASHBOARD</h1>
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+                      <script src="{{ url_for('static', filename='js/animate.js') }}"></script>
+                    </span></a>
                     </div>
                 </div>
         </div>
@@ -72,14 +74,13 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    Popularity
                     <div class="dropdown" id="popularity-dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Choose
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="popularityMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Artist
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="popularityMenuButton">
                             <a class="dropdown-item" href="#">All</a>
-                            {% for pop in popularity %}
+                            {% for pop in artists %}
                             <a class="dropdown-item" href="#">{{pop}}</a>
                             {% endfor %}
                         </div>
@@ -90,18 +91,17 @@
 
             <div class="row">
                 <div class="col">
-                    Year
                     <div class="dropdown" id="year-dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Choose
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="yearMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Year
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="yearMenuButton">
                             <a class="dropdown-item" href="#">All</a>
                             {% for year in date_release %}
                             <a class="dropdown-item" href="#">{{year}}</a>
                             {% endfor %}
                         </div>
-                    </div>
+                    </div><br><br><br><br>
             <div id="table"></div><br><br><br><br>
                 </div>
             </div>
@@ -113,6 +113,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plot.js') }}"></script>
     <script src="{{ url_for('static', filename='js/table.js') }}"></script>
 </body>

@@ -57,12 +57,12 @@ def top_art():
 
 @app.route('/popularity-and-year')
 def top_pop():
-    popularity = []
+    artists = []
     date_release = []
     for object in mongo.db.songs.find({}, {"_id":False}):
-        pop = object["popularity_index"]
-        if pop not in popularity:
-            popularity.append(pop)
+        artist = object["artist"]
+        if artist not in artists:
+            artists.append(artist)
         else:
             exit
         years = object["year_of_release"]
@@ -70,7 +70,7 @@ def top_pop():
             date_release.append(years)
         else:
             exit
-    return render_template("Song_Data.html", popularity=popularity, date_release=date_release)
+    return render_template("Song_Data.html", artists=artists, date_release=date_release)
 
 @app.route('/json-file')
 def file():
@@ -90,19 +90,35 @@ def file():
 
 @app.route('/year')
 def afile():
-    date = request.args.get('year_of_release')
-    if not date:
+    year_of_release = request.args.get('year_of_release')
+    if not year_of_release:
         return
 
-    if date == 'All':
+    if year_of_release == 'All':
         results = mongo.db.songs.find({}, {"_id":False})
     else:
-        results = mongo.db.songs.find({'date': date}, {"_id":False})
+        results = mongo.db.songs.find({'year_of_release': year_of_release}, {"_id":False})
 
     data = []
     for result in results:
         data.append(result)
     return jsonify(data)
+
+@app.route('/pop')
+def bfile():
+    artist= request.args.get('artist')
+    if not artist:
+        return
+
+    if artist == 'All':
+        results = mongo.db.songs.find({}, {"_id":False})
+    else:
+        results = mongo.db.songs.find({'artist': artist}, {"_id":False})
+
+    data1 = []
+    for result in results:
+        data1.append(result)
+    return jsonify(data1)
 
 @app.route('/about')
 def about():
