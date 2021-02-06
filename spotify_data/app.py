@@ -1,5 +1,5 @@
 #Import Flask
-from flask import Flask, render_template, redirect, jsonify
+from flask import Flask, render_template, redirect, jsonify, request
 from flask_pymongo import PyMongo
 import json
 from bson import json_util
@@ -74,7 +74,15 @@ def top_pop():
 
 @app.route('/json-file')
 def file():
-    results = mongo.db.songs.find({}, {"_id":False})
+    artist = request.args.get('artist')
+    if not artist:
+        return
+
+    if artist == 'All':
+        results = mongo.db.songs.find({}, {"_id":False})
+    else:
+        results = mongo.db.songs.find({'artist': artist}, {"_id":False})
+
     data1 = []
     for result in results:
         data1.append(result)
