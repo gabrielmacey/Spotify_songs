@@ -88,6 +88,22 @@ def file():
         data1.append(result)
     return jsonify(data1)
 
+@app.route('/year')
+def afile():
+    date = request.args.get('year_of_release')
+    if not date:
+        return
+
+    if date == 'All':
+        results = mongo.db.songs.find({}, {"_id":False})
+    else:
+        results = mongo.db.songs.find({'date': date}, {"_id":False})
+
+    data = []
+    for result in results:
+        data.append(result)
+    return jsonify(data)
+
 @app.route('/about')
 def about():
     spot_songs = mongo.db.songs.find_one()

@@ -1,17 +1,45 @@
-var trace1 = {
-    x: ["Sam Smith", "Beyonce", "Rhianna", "Queen", "Aerosmith", "Bad Bunny", "Marc Anthony"],
-    y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0],
-    type: "bar",
-    marker: {
-      color: '#1DB954',
-    }
+$(function(){
+	$('.dropdown .dropdown-toggle').click(function(event){
+		$(this).parent().children('.dropdown-menu').toggle(200);
+	});
 
-  };
+	$('#year-dropdown .dropdown-item').click((event) => {
+		$.ajax({
+	    type:"GET",
+	    url: "/year",
+			data: {
+				popularity_index: event.target.textContent
+			},
+	    success: function(data) {
+				$('#year-dropdown .dropdown-menu').hide(200);
+				updateGraph(data);
+	    },
+	    error: function(jqXHR, textStatus, errorThrown) {
+				$('#year-dropdown .dropdown-menu').hide(200);
+	      alert(jqXHR.status);
+	    },
+		});
+	});
+});
 
-  var data = [trace1];
+function updateGraph(yearData) {
+	let data = {
+	  x: [],
+	  y: [],
+	  type: "bar",
+	  marker: {
+	    color: '#1DB954',
+	  }
+	};
+	yearData.forEach((item, i) => {
+		data.x.push(item['song_title']);
+		data.y.push(item['popularity_index']);
+	});
+	console.log(artistData);
 
-  var layout = {
-    title: "Spotify Artists Popularity"
-  };
+	const layout = {
+	  title: "Spotify Year Popularity"
+	};
 
-  Plotly.newPlot("plot", data, layout); 
+	Plotly.newPlot("table", [data], layout);
+}

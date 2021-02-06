@@ -24,21 +24,15 @@
                     </div>
                     <div class="col">
                         <h2>SPOTIFY DASHBOARD
-
                         </h2></span></a>
                     </div>
-
                 </div>
         </div>
 
 
         <div class="p-3 mb-2 bg-dark text-success"><br>
-
             <div class="row">
-
-
                 <div class="col-3">
-
                     <div class="caption">
                         <ul class="nav justify-content-center">
                             <a href="{{url_for('index') }}" class="btn btn-success" role="button">Home</a>
@@ -78,42 +72,40 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-
-
                     Popularity
-                    <div class="dropdown">
+                    <div class="dropdown" id="popularity-dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choose
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#">All</a>
+                            {% for pop in popularity %}
+                            <a class="dropdown-item" href="#">{{pop}}</a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div><br><br><br><br>
+            <div id="plot"></div><br><br><br><br>
+
             <div class="row">
                 <div class="col">
-
                     Year
-                    <div class="dropdown">
+                    <div class="dropdown" id="year-dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choose
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">1954</a>
-
-
-
+                            <a class="dropdown-item" href="#">All</a>
+                            {% for year in date_release %}
+                            <a class="dropdown-item" href="#">{{year}}</a>
+                            {% endfor %}
                         </div>
                     </div>
+            <div id="table"></div><br><br><br><br>
                 </div>
             </div>
         </div>
-    </div>
-
-    </ul>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -121,6 +113,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/idk.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/table.js') }}"></script>
 </body>
 </html>
