@@ -1,8 +1,8 @@
-# Spotify_songs
+# Spotify_songs;
 
 ##What are we doing?
 
-We are taking information from Spotify and showcasing it on a web browser.
+We are taking information from Spotify and showcasing it on a web browser.;
 
 By allowing the user to adjust the parameters of each bar graph, we are allowing the user to visual information about some of their favorite artists that we have chosen.
 
