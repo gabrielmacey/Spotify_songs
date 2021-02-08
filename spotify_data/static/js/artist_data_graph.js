@@ -34,8 +34,10 @@ function updateGraph(artistData) {
 	console.log(artistData);
 
 	const layout = {
-	  title: "Spotify Artists Popularity"
-	};
+	  title: "Spotify Artists Popularity",
+	  xaxis: { title: "Song Title" },
+	  yaxis: { title: "Popularity Index"}
+
 
 	Plotly.newPlot("plot", [data], layout);
 }
