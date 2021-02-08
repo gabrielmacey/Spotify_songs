@@ -34,8 +34,10 @@ function updatePopularityGraph(popularityData) {
 	console.log(popularityData);
 
 	const layout = {
-	  title: "Spotify Artist Year Popularity"
-	};
+	  title: "Spotify Artist Year Popularity",
+	  xaxis: { title: "Release Year" },
+	  yaxis: { title: "Popularity Index"}
+
 
 	Plotly.newPlot("plot", [data], layout);
 }
